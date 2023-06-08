@@ -1,1 +1,0 @@
-\ir ../sample_data.sql

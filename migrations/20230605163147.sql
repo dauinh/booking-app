@@ -1,1 +1,0 @@
-\ir ../tables/properties.sql
