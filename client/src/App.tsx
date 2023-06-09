@@ -1,13 +1,15 @@
-// import { useState } from 'react'
-// import './App.css'
-import Dashboard from './components/host'
+import { useState } from 'react'
+import HostPage from './components/host'
+import GuestPage from './components/guest'
 
 function App() {
-  return (
-    <>
-      <Dashboard/>
-    </>
-  )
+  const isHost = false;
+  if (isHost) {
+    return <HostPage/>
+  } else {
+    return <GuestPage/>
+  }
+  
 }
 
 export default App
