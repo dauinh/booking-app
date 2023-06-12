@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
 import { Booking } from './Booking';
+import { Property } from './Property';
 
 @Entity({ name: 'hosts' })
 export class Host {
@@ -26,6 +27,9 @@ export class Host {
 
   @OneToMany(() => Booking, booking => booking.host)
   bookings: Booking[];
+
+  @OneToMany(() => Property, property => property.host)
+  properties: Property[];
 
   @CreateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
   created_at: Date;
