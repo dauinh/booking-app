@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { AppDataSource } from '../data-source'
-import { Host } from '../entity/hosts'
+import { Host } from '../entity/Host'
 
 
 const router: Router = Router();

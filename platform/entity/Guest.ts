@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
+import { Booking } from './Booking';
 
 @Entity({ name: 'guests' })
 export class Guest {
@@ -19,6 +20,9 @@ export class Guest {
 
   @Column({ type: 'varchar', length: 255 })
   email: string;
+
+  @OneToMany(() => Booking, booking => booking.guest)
+  bookings: Booking[];
 
   @CreateDateColumn({ type: 'timestamptz', name: 'created_at', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;
