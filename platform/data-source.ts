@@ -1,7 +1,10 @@
 import 'reflect-metadata'
+import dotenv from 'dotenv';
 import { DataSource } from 'typeorm'
 import { Host } from './entity/Host'
-import dotenv from 'dotenv';
+import { Property } from './entity/Property';
+import { Booking } from './entity/Booking';
+import { Guest } from './entity/Guest';
 
 dotenv.config();
 
@@ -14,7 +17,7 @@ export const AppDataSource = new DataSource({
     database: process.env.DB_NAME,
     synchronize: false,
     logging: false,
-    entities: [Host],
+    entities: [Host, Guest, Booking, Property],
     migrations: [],
     subscribers: [],
 })
