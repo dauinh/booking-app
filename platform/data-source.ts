@@ -1,10 +1,10 @@
 import 'reflect-metadata'
 import dotenv from 'dotenv';
 import { DataSource } from 'typeorm'
-import { Host } from './entity/Host'
-import { Property } from './entity/Property';
-import { Booking } from './entity/Booking';
-import { Guest } from './entity/Guest';
+import { Host } from './entities/host.entity'
+import { Property } from './entities/property.entity';
+import { Booking } from './entities/booking.entity';
+import { Guest } from './entities/guest.entity';
 
 dotenv.config();
 

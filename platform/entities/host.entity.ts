@@ -1,15 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
-import { Booking } from './Booking';
-import { Property } from './Property';
+import { Entity, Column, OneToMany } from 'typeorm';
+import { Booking } from './booking.entity';
+import { Property } from './property.entity';
+import BaseEntity from './base.entity';
 
 @Entity({ name: 'hosts' })
-export class Host {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
-  @Column({ type: 'int', name: '_id' })
-  _id: number;
-
+export class Host extends BaseEntity {
   @Column({ type: 'boolean', name: '_active', default: true })
   _active: boolean;
 
@@ -30,10 +25,4 @@ export class Host {
 
   @OneToMany(() => Property, property => property.host)
   properties: Property[];
-
-  @CreateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
-  created_at: Date;
-
-  @UpdateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
-  updated_at: Date;
 }
