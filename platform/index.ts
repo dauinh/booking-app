@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from 'express';
-import { AppDataSource } from './data-source';
-import hostRoutes from './routes/hostRoutes';
-import guestRoutes from './routes/guestRoutes';
+import { AppDataSource } from '@src/data-source';
+import hostRoutes from '@api/profile/host';
+import guestRoutes from '@api/profile/guest';
 
 const app: Express = express();
 const port = 3000;
