@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
-import { getAllHosts } from '../api/hostRoutes';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import styled from "styled-components";
+import { getAllHosts } from "../api/hostRoutes";
+import { Host } from "../types/host";
+import HostCard from "../components/HostCard";
 
 const Header = styled.header`
   background-color: #f1f1f1;
@@ -30,12 +32,12 @@ const Nav = styled.nav`
 `;
 
 const HostPage: React.FC = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Host[]>([]);
 
   const fetchData = async () => {
-      const hosts = await getAllHosts();
-      setData(hosts);
-  }
+    const hosts = await getAllHosts();
+    setData(hosts);
+  };
 
   useEffect(() => {
     fetchData();
@@ -43,7 +45,9 @@ const HostPage: React.FC = () => {
 
   return (
     <div>
-      {data}
+      {data.map((host) => (
+        <HostCard key={host.id} data={host} />
+      ))}
     </div>
   );
 
