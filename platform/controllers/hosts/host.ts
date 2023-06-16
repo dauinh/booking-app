@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { AppDataSource } from "@src/data-source";
-import { Host } from "@src/entities/host.entity";
+import { AppDataSource } from '../../data-source';
+import { Host } from "../../entities/host.entity";
 
 
 const getAllHosts = async (req: Request, res: Response) => {

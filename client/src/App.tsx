@@ -1,6 +1,10 @@
 import { useState } from 'react';
-import HostPage from './components/host';
-import GuestPage from './components/guest';
+import HostPage from './pages/host';
+import GuestPage from './pages/guest';
+
+// page: biggest component => organism
+// nav bar: big component => molecules
+// links: smaller components => atoms
 
 function App() {
   const isHost = true;
