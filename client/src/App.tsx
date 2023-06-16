@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import HostPage from './pages/host';
 import GuestPage from './pages/guest';
 

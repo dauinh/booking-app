@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
 import { getAllHosts } from '../api/hostRoutes';
 
@@ -29,6 +28,10 @@ const Nav = styled.nav`
   }
 `;
 
+const listItem = styled.li`
+  color: black;
+`;
+
 const HostPage: React.FC = () => {
   const [data, setData] = useState([]);
 
@@ -43,7 +46,11 @@ const HostPage: React.FC = () => {
 
   return (
     <div>
-      {data}
+      <ul>
+        {data.map(host => (
+          <listItem key={host.id}>{host.name}</listItem>
+        ))}
+      </ul>
     </div>
   );
 
