@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { Host } from '../../entities/host.entity';
 import { AppDataSource } from '../../data-source';
+import { Host } from '../../entities/host.entity';
 import { Guest } from '../../entities/guest.entity';
 
 // POST /auth/signup
