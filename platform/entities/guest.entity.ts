@@ -13,7 +13,7 @@ export class Guest extends BaseEntity {
   @Column({ type: 'varchar', length: 15 })
   phone: string;
 
-  @Column({ type: 'varchar', length: 255 })
+  @Column({ type: 'varchar', length: 255, unique: true })
   email: string;
 
   @OneToMany(() => Booking, booking => booking.guest)

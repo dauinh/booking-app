@@ -14,7 +14,7 @@ export class Host extends BaseEntity {
   @Column({ type: 'varchar', length: 15 })
   phone: string;
 
-  @Column({ type: 'varchar', length: 255 })
+  @Column({ type: 'varchar', length: 255, unique: true })
   email: string;
 
   @Column({ type: 'varchar', length: 255 })

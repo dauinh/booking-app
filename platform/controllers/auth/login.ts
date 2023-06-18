@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 
-const login = async (req: Request, res: Response) => {
+// POST /api/auth/login
+export const login = async (req: Request, res: Response) => {
     
 };
-
-export default login;
