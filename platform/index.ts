@@ -12,6 +12,7 @@ AppDataSource.initialize().then( () => {
 }).catch(error => console.log(error));
 
 // Enable CORS for all routes
+app.use(express.json());
 app.use(cors());
 app.use('/hosts', hostRoutes);
 app.use('/auth', authRoutes);
