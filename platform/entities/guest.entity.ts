@@ -18,4 +18,7 @@ export class Guest extends BaseEntity {
 
   @OneToMany(() => Booking, booking => booking.guest)
   bookings: Booking[];
+
+  @Column({ type: 'varchar', length: 255, default: 'password' })
+  password: string;
 }

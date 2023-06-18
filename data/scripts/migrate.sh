@@ -1,6 +1,6 @@
 #!/bin/bash
 
-migration_file="20230618214745_add_passwords.sql"
+migration_file="20230618220414_add_unique_constraint_to_email.sql"
 
 # Get the base directory of the project
 base_dir="$(cd "$(dirname "$0")" && cd .. && pwd)"

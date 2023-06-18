@@ -2,7 +2,7 @@
 
 # Get the base directory of the project
 base_dir="$(cd "$(dirname "$0")" && cd ..&& pwd)"
-action='add_passwords'
+action='add_unique_constraint_to_email'
 timestamp=$(date +'%Y%m%d%H%M%S')
 
 file_path="$base_dir/migrations"

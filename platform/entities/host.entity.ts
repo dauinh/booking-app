@@ -25,4 +25,7 @@ export class Host extends BaseEntity {
 
   @OneToMany(() => Property, property => property.host)
   properties: Property[];
+
+  @Column({ type: 'varchar', length: 255, default: 'password' })
+  password: string;
 }
