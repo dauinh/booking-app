@@ -2,7 +2,7 @@
 
 # Get the base directory of the project
 base_dir="$(cd "$(dirname "$0")" && cd ..&& pwd)"
-action='test'
+action='add_passwords'
 timestamp=$(date +'%Y%m%d%H%M%S')
 
 file_path="$base_dir/migrations"

@@ -1,0 +1,5 @@
+ALTER TABLE hosts
+ADD COLUMN password VARCHAR(255) DEFAULT 'password' NOT NULL;
+
+ALTER TABLE guests
+ADD COLUMN password VARCHAR(255) DEFAULT 'password' NOT NULL;

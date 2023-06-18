@@ -1,6 +1,6 @@
 #!/bin/bash
 
-migration_file="test.sql"
+migration_file="20230618214745_add_passwords.sql"
 
 # Get the base directory of the project
 base_dir="$(cd "$(dirname "$0")" && cd .. && pwd)"
