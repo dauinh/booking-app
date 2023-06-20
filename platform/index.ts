@@ -21,7 +21,7 @@ app.use(cors());
 // Configure cookie session middleware
 app.use(cookieParser());
 
-app.use('/hosts', hostRoutes);
+app.use('/host', hostRoutes);
 app.use('/auth', authRoutes);
 
 app.listen(port, () => {

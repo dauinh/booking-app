@@ -16,7 +16,6 @@ export const signupHost = async (req: Request, res: Response) => {
         phone: phone,
         email: email
     });
-
     if (findHost) {
       return res.status(409).json({ error: 'Email is already registered' });
     }
@@ -38,7 +37,6 @@ export const signupHost = async (req: Request, res: Response) => {
     const token = jwt.sign({ userId: newHost.id }, 'secret-key');
 
     res.json({ token });
-
   } catch (error) {
     console.error('Error during signup:', error);
     res.status(500).json({ error: 'Server error' });
@@ -56,7 +54,6 @@ export const signupGuest = async (req: Request, res: Response) => {
         phone: phone,
         email: email
     });
-
     if (findGuest) {
       return res.status(409).json({ error: 'Email is already registered' });
     }
@@ -77,7 +74,6 @@ export const signupGuest = async (req: Request, res: Response) => {
     const token = jwt.sign({ userId: newGuest.id }, 'secret-key');
 
     res.json({ token });
-    
   } catch (error) {
     console.error('Error during signup:', error);
     res.status(500).json({ error: 'Server error' });

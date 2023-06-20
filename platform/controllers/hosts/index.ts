@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import getAllHosts from './host';
+import { getAllHosts, getHostProfile } from './host';
 
 const router: Router = Router();
 
-router.get("/", getAllHosts);
-router.post("/");
+router.get("/profile", getHostProfile);
+router.get("/all", getAllHosts);
 
 export default router;
