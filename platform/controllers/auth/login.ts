@@ -27,7 +27,8 @@ export const loginHost = async (req: Request, res: Response) => {
 
         // Generate an access token (JWT)
         const token = jwt.sign({ userId: host.id }, 'secret-key');
-        res.json({ token });
+        res.cookie('token', token, {maxAge: 1 * 60 * 60 * 1000})
+            .send('Token saved to session cookie');
 
     } catch (error) {
         console.error('Error during login:', error);
@@ -55,7 +56,8 @@ export const loginGuest = async (req: Request, res: Response) => {
         }
         // Generate an access token (JWT)
         const token = jwt.sign({ userId: guest.id }, 'secret-key');
-        res.json({ token });
+        res.cookie('token', token, {maxAge: 1 * 60 * 60 * 1000})
+            .send('Token saved to session cookie');
 
     } catch (error) {
         console.error('Error during login:', error);
