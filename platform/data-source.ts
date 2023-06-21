@@ -21,3 +21,8 @@ export const AppDataSource = new DataSource({
     migrations: [],
     subscribers: [],
 })
+
+export const hostRepository = AppDataSource.getRepository(Host);
+export const guestRepository = AppDataSource.getRepository(Guest);
+export const propertyRepository = AppDataSource.getRepository(Property);
+export const bookingRepository = AppDataSource.getRepository(Booking);

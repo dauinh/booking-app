@@ -1,9 +1,7 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { AppDataSource } from '../../data-source';
-import { Host } from '../../entities/host.entity';
-import { Guest } from '../../entities/guest.entity';
+import { hostRepository, guestRepository } from '../../data-source';
 
 
 // POST /auth/login/host
@@ -12,7 +10,6 @@ export const loginHost = async (req: Request, res: Response) => {
         const { email, password } = req.body;
 
         // Find the host by email
-        const hostRepository = await AppDataSource.getRepository(Host);
         const host = await hostRepository.findOneBy({ email: email });
 
         if (!host) {
@@ -39,7 +36,6 @@ export const loginGuest = async (req: Request, res: Response) => {
         const { email, password } = req.body;
 
         // Find the user by email
-        const guestRepository = await AppDataSource.getRepository(Guest);
         const guest = await guestRepository.findOneBy({ email: email });
 
         if (!guest) {

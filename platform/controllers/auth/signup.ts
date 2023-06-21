@@ -1,16 +1,15 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { AppDataSource } from '../../data-source';
 import { Host } from '../../entities/host.entity';
 import { Guest } from '../../entities/guest.entity';
+import { hostRepository, guestRepository } from '../../data-source';
 
 // POST /auth/signup/host
 export const signupHost = async (req: Request, res: Response) => {
   try {
     // Check if user already exists
     const { name, phone, address, email, password } = req.body;
-    const hostRepository = await AppDataSource.getRepository(Host);
     const findHost = await hostRepository.findOneBy({
         name: name,
         phone: phone,
@@ -47,7 +46,6 @@ export const signupHost = async (req: Request, res: Response) => {
 export const signupGuest = async (req: Request, res: Response) => {
   try {
     const { name, phone, email, password } = req.body;
-    const guestRepository = await AppDataSource.getRepository(Guest);
 
     const findGuest = await guestRepository.findOneBy({
         name: name,
