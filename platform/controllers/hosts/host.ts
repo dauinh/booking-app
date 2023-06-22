@@ -1,27 +1,14 @@
 import { Request, Response } from 'express';
-import jwt from 'jsonwebtoken';
-import { AppDataSource } from '../../data-source';
-import { Host } from "../../entities/host.entity";
-
-interface DecodedTokenPayload { userId: string; }
-
-// GET /host/all
-export const getAllHosts = async (req: Request, res: Response) => {
-    const hosts = await AppDataSource.getRepository(Host).find();
-    res.json(hosts);
-};
+import { hostRepository } from '../../data-source';
 
 // GET /host/profile
 export const getHostProfile = async (req: Request, res: Response) => {
     try {
-        const { token } = req.cookies;
-        const decodedToken = jwt.verify(token, 'secret-key') as DecodedTokenPayload;
-        const id = decodedToken.userId;
-
-        const host = await AppDataSource.getRepository(Host).findOneBy({ id: id });
+        const userId = req.userId;
+        const host = await hostRepository.findOneBy({ id: userId });
         res.json(host);
     } catch (error) {
-        console.error('Error decoding JWT:', error);
-        res.status(401).json({ error: 'Error decoding JWT' });
+        console.error('Error decrypting token:', error);
+        res.status(401).json({ error: 'Invalid token' });
     }
 };
