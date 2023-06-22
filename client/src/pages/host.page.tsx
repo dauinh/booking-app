@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { getAllHosts } from "../api/hostRoutes";
-import { Host } from "../types/host";
-import HostCard from "../components/HostCard";
+import { getHostProfile } from "../api/profile";
+import { Host } from "../types/host.type";
 
 const Header = styled.header`
   background-color: #f1f1f1;
@@ -35,11 +34,11 @@ const listItem = styled.li`
 `;
 
 const HostPage: React.FC = () => {
-  const [data, setData] = useState<Host[]>([]);
+  const [data, setData] = useState<Host>();
 
   const fetchData = async () => {
-    const hosts = await getAllHosts();
-    setData(hosts);
+    const host = await getHostProfile();
+    setData(host);
   };
 
   useEffect(() => {
@@ -48,11 +47,16 @@ const HostPage: React.FC = () => {
 
   return (
     <div>
-      {data.map((host) => (
-        <HostCard key={host.id} data={host} />
-      ))}
+      <p>Hello World</p>
     </div>
   );
+  // return (
+  //   <div>
+  //     {data.map((host) => (
+  //       <HostCard key={host.id} data={host} />
+  //     ))}
+  //   </div>
+  // );
 
   // return (
   //   <Header>
