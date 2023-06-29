@@ -16,7 +16,7 @@ export class Guest extends BaseEntity {
   @Column({ type: 'varchar', length: 255, unique: true })
   email: string;
 
-  @OneToMany(() => Booking, booking => booking.guest)
+  @OneToMany(() => Booking, (booking) => booking.guest)
   bookings: Booking[];
 
   @Column({ type: 'varchar', length: 255, default: 'password' })

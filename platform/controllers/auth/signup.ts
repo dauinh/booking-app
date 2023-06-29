@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import { Host } from '../../entities/host.entity';
 import { Guest } from '../../entities/guest.entity';
 import { hostRepository, guestRepository } from '../../data-source';
+import { SECRET_KEY } from '../..';
 
 // POST /auth/signup/host
 export const signupHost = async (req: Request, res: Response) => {
@@ -11,9 +12,9 @@ export const signupHost = async (req: Request, res: Response) => {
     // Check if user already exists
     const { name, phone, address, email, password } = req.body;
     const findHost = await hostRepository.findOneBy({
-        name: name,
-        phone: phone,
-        email: email
+      name: name,
+      phone: phone,
+      email: email
     });
     if (findHost) {
       return res.status(409).json({ error: 'Email is already registered' });
@@ -33,14 +34,14 @@ export const signupHost = async (req: Request, res: Response) => {
     await hostRepository.save(newHost);
 
     // Generate an access token (JWT)
-    const token = jwt.sign({ userId: newHost.id }, 'secret-key');
+    const token = jwt.sign({ userId: newHost.id }, SECRET_KEY);
 
     res.json({ token });
   } catch (error) {
     console.error('Error during signup:', error);
     res.status(500).json({ error: 'Server error' });
   }
-}
+};
 
 // POST /auth/signup/guest
 export const signupGuest = async (req: Request, res: Response) => {
@@ -48,9 +49,9 @@ export const signupGuest = async (req: Request, res: Response) => {
     const { name, phone, email, password } = req.body;
 
     const findGuest = await guestRepository.findOneBy({
-        name: name,
-        phone: phone,
-        email: email
+      name: name,
+      phone: phone,
+      email: email
     });
     if (findGuest) {
       return res.status(409).json({ error: 'Email is already registered' });

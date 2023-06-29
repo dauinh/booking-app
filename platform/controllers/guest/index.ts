@@ -4,6 +4,6 @@ import { validateGuest } from '../../middlewares/validate';
 
 const router: Router = Router();
 
-router.get("/profile", validateGuest, getGuestProfile);
+router.get('/profile', validateGuest, getGuestProfile);
 
 export default router;

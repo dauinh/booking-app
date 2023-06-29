@@ -20,10 +20,10 @@ export class Host extends BaseEntity {
   @Column({ type: 'varchar', length: 255 })
   address: string;
 
-  @OneToMany(() => Booking, booking => booking.host)
+  @OneToMany(() => Booking, (booking) => booking.host)
   bookings: Booking[];
 
-  @OneToMany(() => Property, property => property.host)
+  @OneToMany(() => Property, (property) => property.host)
   properties: Property[];
 
   @Column({ type: 'varchar', length: 255, default: 'password' })

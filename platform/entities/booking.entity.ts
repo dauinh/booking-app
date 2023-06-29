@@ -5,10 +5,10 @@ import BaseEntity from './base.entity';
 
 @Entity({ name: 'bookings' })
 export class Booking extends BaseEntity {
-  @ManyToOne(() => Host, host => host.bookings)
+  @ManyToOne(() => Host, (host) => host.bookings)
   host: Host;
 
-  @ManyToOne(() => Guest, guest => guest.bookings)
+  @ManyToOne(() => Guest, (guest) => guest.bookings)
   guest: Guest;
 
   @Column({ type: 'timestamptz', name: 'check_in_date' })

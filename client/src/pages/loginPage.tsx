@@ -21,8 +21,8 @@ const LoginPage: React.FC = () => {
     // Send an API request to the backend to authenticate the user
     const token = await loginHost(email, password);
     if (token) { 
-        // Redirect to the host profile page
-        navigate('/host/profile');
+      // Redirect to the host profile page
+      navigate('/host/profile');
     }
 
     // Reset the form

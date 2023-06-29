@@ -4,6 +4,6 @@ import { validateHost } from '../../middlewares/validate';
 
 const router: Router = Router();
 
-router.get("/profile", validateHost, getHostProfile);
+router.get('/profile', validateHost, getHostProfile);
 
 export default router;
