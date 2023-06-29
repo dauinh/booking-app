@@ -47,7 +47,7 @@ const HostPage: React.FC = () => {
 
   return (
     <div>
-      <p>Hello World</p>
+      <p>{JSON.stringify(data, null, 2)}</p>
     </div>
   );
   // return (

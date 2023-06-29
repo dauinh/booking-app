@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axiosInstance from './index';
 
-// GET /api/profile
-export const getHostProfile = async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/host/profile');
-      return response.data;
-    } catch (error) {
-      console.error(error);
-    }
-}
+export const getHostProfile = async (): Promise<any> => {
+  try {
+    const response = await axiosInstance.get('/host/profile');
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching host profile:', error);
+    throw error;
+  }
+};

@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import HostPage from './pages/host.page';
-import GuestPage from './pages/guest.page';
-import LoginPage from './pages/login.page';
+import HostPage from './pages/hostPage';
+import GuestPage from './pages/guestPage';
+import LoginPage from './pages/loginPage';
 
 // page: biggest component => organism
 // nav bar: big component => molecules

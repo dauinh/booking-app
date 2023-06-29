@@ -22,7 +22,10 @@ export const loginHost = async (req: Request, res: Response) => {
         }
         // Generate an access token (JWT)
         const token = jwt.sign({ userId: host.id }, 'secret-key');
-        res.cookie('token', token, {maxAge: 1 * 60 * 60 * 1000})
+        res.cookie('token', token, {
+            maxAge: 1 * 60 * 60 * 1000,
+            httpOnly: true,
+        })
             .send('Token saved to session cookie');
     } catch (error) {
         console.error('Error during login:', error);

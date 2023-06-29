@@ -1,13 +1,14 @@
-import axios from 'axios';
+import axiosInstance from './index';
 
-// POST /auth/login
-export const loginHost = async (email: string, password: string) => {
-    try {
-      return axios.post('http://localhost:3000/auth/login/host', {
-        email: email,
-        password: password
-      });
-    } catch (error) {
-      console.error(error);
-    }
-}
+export const loginHost = async (email: string, password: string): Promise<any> => {
+  const url = '/auth/login/host';
+  const data = { email, password };
+
+  try {
+    const response = await axiosInstance.post(url, data);
+    return response.data;
+  } catch (error) {
+    console.error('Error logging in:', error);
+    throw error;
+  }
+};
