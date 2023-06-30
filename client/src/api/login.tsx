@@ -15,3 +15,19 @@ export const loginHost = async (
     throw error;
   }
 };
+
+export const loginGuest = async (
+  email: string,
+  password: string
+): Promise<any> => {
+  const url = '/auth/login/guest';
+  const data = { email, password };
+
+  try {
+    const response = await axiosInstance.post(url, data);
+    return response.data;
+  } catch (error) {
+    console.error('Error logging in:', error);
+    throw error;
+  }
+};

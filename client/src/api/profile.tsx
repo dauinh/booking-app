@@ -9,3 +9,13 @@ export const getHostProfile = async (): Promise<any> => {
     throw error;
   }
 };
+
+export const getGuestProfile = async (): Promise<any> => {
+  try {
+    const response = await axiosInstance.get('/guest/profile');
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching guest profile:', error);
+    throw error;
+  }
+};
