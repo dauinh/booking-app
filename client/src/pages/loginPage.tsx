@@ -7,8 +7,8 @@ const SliderButton = styled.button<{ isToggled: boolean }>`
   background-color: ${({ isToggled }) => (isToggled ? 'orange' : 'grey')};
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
   cursor: pointer;
   font-size: 16px;
 `;
