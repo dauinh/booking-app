@@ -1,6 +1,9 @@
 import axiosInstance from '.';
 
-export const loginHost = async (email: string, password: string): Promise<any> => {
+export const loginHost = async (
+  email: string,
+  password: string
+): Promise<any> => {
   const url = '/auth/login/host';
   const data = { email, password };
 

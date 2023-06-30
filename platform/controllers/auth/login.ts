@@ -25,7 +25,9 @@ export const loginHost = async (req: Request, res: Response) => {
     res
       .cookie('token', token, {
         maxAge: 1 * 60 * 60 * 1000,
-        httpOnly: true
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
       })
       .send('Token saved to session cookie');
   } catch (error) {

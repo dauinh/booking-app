@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { loginHost } from '../api/login';
 
 const LoginPage: React.FC = () => {
@@ -20,7 +20,7 @@ const LoginPage: React.FC = () => {
 
     // Send an API request to the backend to authenticate the user
     const token = await loginHost(email, password);
-    if (token) { 
+    if (token) {
       // Redirect to the host profile page
       navigate('/host/profile');
     }
@@ -40,7 +40,11 @@ const LoginPage: React.FC = () => {
         </div>
         <div>
           <label>Password:</label>
-          <input type="password" value={password} onChange={handlePasswordChange} />
+          <input
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+          />
         </div>
         <button type="submit">Login</button>
       </form>

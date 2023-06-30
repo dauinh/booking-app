@@ -13,7 +13,7 @@ function App() {
       <Route path="login" element={<LoginPage />} />
       <Route path="host/profile" element={<HostPage />} />
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;

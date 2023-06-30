@@ -1,5 +1,7 @@
 export interface Host {
-    id: string
-    name: string
-    email: string
+  id: string;
+  name: string;
+  phone: string;
+  email: string;
+  address: string;
 }
