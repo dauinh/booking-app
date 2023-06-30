@@ -9,7 +9,6 @@ const HostPage: React.FC = () => {
 
   const fetchData = async () => {
     const host = await getHostProfile();
-    console.log(host);
     setData(host);
   };
 
@@ -17,12 +16,9 @@ const HostPage: React.FC = () => {
     fetchData();
   }, []);
 
-  // if (!data) { return null;}
-
   return (
     <div>
-      <p>hello world</p>
-      {/* <HostCard data={data}/> */}
+      <HostCard data={data}/>
     </div>
   );
 };
