@@ -26,7 +26,7 @@ export const loginHost = async (req: Request, res: Response) => {
       .cookie('token', token, {
         maxAge: 1 * 60 * 60 * 1000,
         secure: true,
-        sameSite: 'none',
+        sameSite: 'none'
       })
       .send('Token saved to session cookie');
   } catch (error) {
@@ -57,7 +57,7 @@ export const loginGuest = async (req: Request, res: Response) => {
       .cookie('token', token, {
         maxAge: 1 * 60 * 60 * 1000,
         secure: true,
-        sameSite: 'none',
+        sameSite: 'none'
       })
       .send('Token saved to session cookie');
   } catch (error) {

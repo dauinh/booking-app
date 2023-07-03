@@ -8,7 +8,7 @@ export class Property extends BaseEntity {
   _active: boolean;
 
   @ManyToOne(() => Host, (host) => host.properties)
-  @JoinColumn({ name: "host_id" })
+  @JoinColumn({ name: 'host_id' })
   host: Host;
 
   @Column({ type: 'varchar', length: 255 })

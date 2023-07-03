@@ -25,7 +25,7 @@ const GuestPage: React.FC = () => {
   return (
     <div>
       <Heading>Welcome to the Booking App</Heading>
-      <GuestCard data={data}/>
+      <GuestCard data={data} />
     </div>
   );
 };

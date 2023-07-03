@@ -21,16 +21,16 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <SliderButton isToggled={isHost} onClick={toggleIsHost}>{isHost ? "Host" : "Guest"}</SliderButton>
+    <>
+      <SliderButton isToggled={isHost} onClick={toggleIsHost}>
+        {isHost ? 'Host' : 'Guest'}
+      </SliderButton>
       <LoginForm isHost={isHost} />
-    </div>
+    </>
   );
 };
 
-const LoginForm = ({ isHost }: {
-  isHost: boolean;
-}) => {
+const LoginForm = ({ isHost }: { isHost: boolean }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -49,10 +49,14 @@ const LoginForm = ({ isHost }: {
     // Send an API request to the backend to authenticate the user
     if (isHost) {
       const token = await loginHost(email, password);
-      if (token) { navigate('/host/profile'); }
+      if (token) {
+        navigate('/host/profile');
+      }
     } else {
       const token = await loginGuest(email, password);
-      if (token) { navigate('/guest/profile'); }
+      if (token) {
+        navigate('/guest/profile');
+      }
     }
 
     // Reset the form
@@ -62,7 +66,7 @@ const LoginForm = ({ isHost }: {
 
   return (
     <div>
-      <h1>Login as {isHost ? "Host" : "Guest"}</h1>
+      <h1>Login as {isHost ? 'Host' : 'Guest'}</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email:</label>
@@ -80,6 +84,6 @@ const LoginForm = ({ isHost }: {
       </form>
     </div>
   );
-}
+};
 
 export default LoginPage;

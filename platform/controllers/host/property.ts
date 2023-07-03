@@ -5,10 +5,11 @@ import { hostRepository } from '../../data-source';
 export const getHostProperties = async (req: Request, res: Response) => {
   try {
     const userId = req.userId;
-    const properties = await hostRepository.createQueryBuilder('host')
+    const properties = await hostRepository
+      .createQueryBuilder('host')
       .where({ id: userId })
       .select(['properties', 'host.id', 'properties.id'])
-      .leftJoin('host.properties', 'properties')  // bar is the joined table
+      .leftJoin('host.properties', 'properties') // bar is the joined table
       .getMany();
     res.json(properties);
   } catch (error) {
