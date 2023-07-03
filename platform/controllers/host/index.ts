@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { getHostProfile } from './profile';
-import { getHostProperties } from './property';
+import { getHostProperties } from './properties';
 
 const router: Router = Router();
 

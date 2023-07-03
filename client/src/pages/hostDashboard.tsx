@@ -1,8 +1,7 @@
-import styled from 'styled-components';
 import HostNavBar from '../components/HostNavBar';
 import { Outlet } from 'react-router-dom';
 
-const HostPage: React.FC = () => {
+const HostDashboard: React.FC = () => {
   return (
     <>
       <HostNavBar />
@@ -11,4 +10,4 @@ const HostPage: React.FC = () => {
   );
 };
 
-export default HostPage;
+export default HostDashboard;

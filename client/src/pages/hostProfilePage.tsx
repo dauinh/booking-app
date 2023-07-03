@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { getHostProfile } from '../api/profile';
+import { HttpGet } from '../api';
 import { Host } from '../types/host.type';
 import HostCard from '../components/HostCard';
-import HostNavBar from '../components/HostNavBar';
 
 const HostProfilePage: React.FC = () => {
   const [data, setData] = useState<Host>();
 
   const fetchData = async () => {
-    const host = await getHostProfile();
+    const host = await HttpGet('/host/profile');
     setData(host);
   };
 
@@ -19,7 +18,7 @@ const HostProfilePage: React.FC = () => {
 
   return (
     <>
-      <HostCard data={data} />
+      {data && <HostCard data={data} />}
     </>
   );
 };

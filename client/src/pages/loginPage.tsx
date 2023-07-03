@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { loginGuest, loginHost } from '../api/login';
+import { HttpPost } from '../api';
 
 const SliderButton = styled.button<{ isToggled: boolean }>`
   background-color: ${({ isToggled }) => (isToggled ? 'orange' : 'grey')};
@@ -45,17 +45,21 @@ const LoginForm = ({ isHost }: { isHost: boolean }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const data = {
+      email: email,
+      password: password,
+    }
 
     // Send an API request to the backend to authenticate the user
     if (isHost) {
-      const token = await loginHost(email, password);
+      const token = await HttpPost('auth/login/host', data);
       if (token) {
-        navigate('/host/profile');
+        navigate('/host');
       }
     } else {
-      const token = await loginGuest(email, password);
+      const token = await HttpPost('auth/login/guest', data);
       if (token) {
-        navigate('/guest/profile');
+        navigate('/guest');
       }
     }
 

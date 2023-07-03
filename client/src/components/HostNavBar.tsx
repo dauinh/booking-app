@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Header = styled.header`
-  background-color: #f1f1f1;
-  padding: 10px;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
 `;
 
 const Nav = styled.nav`
@@ -43,7 +45,7 @@ const HostNavBar: React.FC = () => {
             <Link to="profile">Profile</Link>
           </li>
           <li>
-            <Link to="property">Properties</Link>
+            <Link to="properties">Properties</Link>
           </li>
           {/* <li>
             <a href="/bookings">Bookings</a>

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { hostRepository } from '../../data-source';
 
-// GET /host/property
+// GET /host/properties
 export const getHostProperties = async (req: Request, res: Response) => {
   try {
     const userId = req.userId;
@@ -11,9 +11,9 @@ export const getHostProperties = async (req: Request, res: Response) => {
       .select(['properties', 'host.id', 'properties.id'])
       .leftJoin('host.properties', 'properties') // bar is the joined table
       .getMany();
-    res.json(properties);
+    res.json(properties[0].properties);
   } catch (error) {
-    console.error('Error finding property:', error);
-    res.status(400).json({ error: 'Invalid property' });
+    console.error('Error finding properties:', error);
+    res.status(400).json({ error: 'Invalid properties' });
   }
 };

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { getGuestProfile } from '../api/profile';
+import { HttpGet } from '../api';
 import { Guest } from '../types/guest.type';
 import GuestCard from '../components/GuestCard';
 
@@ -14,7 +14,7 @@ const GuestPage: React.FC = () => {
   const [data, setData] = useState<Guest>();
 
   const fetchData = async () => {
-    const guest = await getGuestProfile();
+    const guest = await HttpGet('/guest/profile');
     setData(guest);
   };
 
@@ -25,7 +25,7 @@ const GuestPage: React.FC = () => {
   return (
     <div>
       <Heading>Welcome to the Booking App</Heading>
-      <GuestCard data={data} />
+      {data && <GuestCard data={data} />}
     </div>
   );
 };

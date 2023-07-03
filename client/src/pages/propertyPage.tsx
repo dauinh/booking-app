@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Property } from '../types/property.type';
-import { getProperty } from '../api/property';
+import { HttpGet } from '../api';
 import PropertyCard from '../components/PropertyCard';
 
 const PropertyPage: React.FC = () => {
-  const [data, setData] = useState<Property>();
+  const [data, setData] = useState<Property[]>();
 
   const fetchData = async () => {
-    const guest = await getProperty();
-    setData(guest);
+    const properties = await HttpGet('/host/properties');
+    setData(properties);
   };
 
   useEffect(() => {
@@ -17,7 +17,9 @@ const PropertyPage: React.FC = () => {
 
   return (
     <>
-      <PropertyCard data={data} />
+      {data && data.map((property) => (
+        <PropertyCard key={property.id} data={property} />
+      ))}
     </>
   );
 };

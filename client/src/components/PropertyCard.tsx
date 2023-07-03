@@ -25,14 +25,10 @@ const Detail = styled.p`
 
 const PropertyCard = ({ data }: Props) => {
   return (
-    <>
-      {data && (
-        <CardWrapper>
-          <Title>{data.name}</Title>
-          <Detail>Address: {data.address}</Detail>
-        </CardWrapper>
-      )}
-    </>
+    <CardWrapper>
+      <Title>{data.name}</Title>
+      <Detail>Address: {data.address}</Detail>
+    </CardWrapper>
   );
 };
 

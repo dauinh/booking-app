@@ -5,4 +5,22 @@ const axiosInstance = axios.create({
   withCredentials: true,
 });
 
-export default axiosInstance;
+export const HttpGet = async (url: string): Promise<any> => {
+  try {
+    const response = await axiosInstance.get(url);
+    return response.data;
+  } catch (error) {
+    console.error(`Error with GET request at ${url}`, error);
+    throw error;
+  }
+};
+
+export const HttpPost = async (url: string, data: {}): Promise<any> => {
+  try {
+    const response = await axiosInstance.post(url, data);
+    return response.data;
+  } catch (error) {
+    console.error(`Error with POST request at ${url}`, error);
+    throw error;
+  }
+};
