@@ -8,6 +8,7 @@ import { AppDataSource } from './data-source';
 import authRoutes from './controllers/auth';
 import hostRoutes from './controllers/host';
 import guestRoutes from './controllers/guest';
+import { validateHost } from './middlewares/validate';
 
 dotenv.config();
 
@@ -28,7 +29,7 @@ app.use(express.json());
 // Enable CORS for frontend routes
 app.use(
   cors({
-    origin: 'http://127.0.0.1:5173',
+    origin: ['http://localhost:5173', 'http://localhost:3000'],
     credentials: true,
     optionsSuccessStatus: 200
   })
@@ -40,7 +41,7 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 
 app.use('/auth', authRoutes);
-app.use('/host', hostRoutes);
+app.use('/host', validateHost, hostRoutes);
 app.use('/guest', guestRoutes);
 
 app.listen(port, () => {

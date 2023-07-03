@@ -25,7 +25,6 @@ export const loginHost = async (req: Request, res: Response) => {
     res
       .cookie('token', token, {
         maxAge: 1 * 60 * 60 * 1000,
-        httpOnly: true,
         secure: true,
         sameSite: 'none',
       })
@@ -57,7 +56,6 @@ export const loginGuest = async (req: Request, res: Response) => {
     res
       .cookie('token', token, {
         maxAge: 1 * 60 * 60 * 1000,
-        httpOnly: true,
         secure: true,
         sameSite: 'none',
       })

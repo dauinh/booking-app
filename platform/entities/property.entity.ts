@@ -1,4 +1,4 @@
-import { Entity, Column, ManyToOne } from 'typeorm';
+import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { Host } from './host.entity';
 import BaseEntity from './base.entity';
 
@@ -8,6 +8,7 @@ export class Property extends BaseEntity {
   _active: boolean;
 
   @ManyToOne(() => Host, (host) => host.properties)
+  @JoinColumn({ name: "host_id" })
   host: Host;
 
   @Column({ type: 'varchar', length: 255 })

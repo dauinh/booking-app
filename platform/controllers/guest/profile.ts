@@ -8,7 +8,7 @@ export const getGuestProfile = async (req: Request, res: Response) => {
     const guest = await guestRepository.findOneBy({ id: userId });
     res.json(guest);
   } catch (error) {
-    console.error('Error decrypting token:', error);
-    res.status(401).json({ error: 'Invalid token' });
+    console.error('Error finding guest:', error);
+    res.status(401).json({ error: 'Invalid guest' });
   }
 };

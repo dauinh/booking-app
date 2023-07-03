@@ -8,7 +8,7 @@ export const getHostProfile = async (req: Request, res: Response) => {
     const host = await hostRepository.findOneBy({ id: userId });
     res.json(host);
   } catch (error) {
-    console.error('Error decrypting token:', error);
-    res.status(401).json({ error: 'Invalid token' });
+    console.error('Error finding host:', error);
+    res.status(401).json({ error: 'Invalid host' });
   }
 };

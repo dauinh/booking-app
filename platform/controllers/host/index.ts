@@ -1,9 +1,10 @@
 import { Router } from 'express';
-import { getHostProfile } from './host';
-import { validateHost } from '../../middlewares/validate';
+import { getHostProfile } from './profile';
+import { getHostProperties } from './property';
 
 const router: Router = Router();
 
-router.get('/profile', validateHost, getHostProfile);
+router.get('/profile', getHostProfile);
+router.get('/properties', getHostProperties);
 
 export default router;

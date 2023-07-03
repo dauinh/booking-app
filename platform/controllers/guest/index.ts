@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getGuestProfile } from './guest';
+import { getGuestProfile } from './profile';
 import { validateGuest } from '../../middlewares/validate';
 
 const router: Router = Router();
