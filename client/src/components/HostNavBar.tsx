@@ -6,6 +6,7 @@ const Header = styled.header`
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
 `;
 
 const Nav = styled.nav`

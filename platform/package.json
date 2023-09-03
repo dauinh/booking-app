@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --config .prettierrc './**/*.ts' --write"
+    "format": "prettier --config .prettierrc './**/*.ts' --write",
+    "typeorm": "typeorm-ts-node-commonjs"
   },
   "keywords": [],
   "author": "",
@@ -26,12 +27,13 @@
     "@types/jsonwebtoken": "^9.0.2",
     "@types/morgan": "^1.9.4",
     "@types/node": "^16.18.34",
-    "bcrypt": "^5.1.0",
+    "@types/pg": "^8.10.2",
+    "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.22",
-    "pg": "^8.11.0",
+    "nodemon": "^3.0.1",
+    "pg": "^8.11.1",
     "prettier": "^2.8.8",
     "ts-node": "^10.9.1",
     "tslib": "^2.5.3",
